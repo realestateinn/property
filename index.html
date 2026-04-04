@@ -1,0 +1,696 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
+  <title>Crystal360 |  Dwarka Expressway, Gurugram</title>
+  <!-- Google Fonts & Font Awesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #ffffff;
+      color: #1A1F2E;
+      scroll-behavior: smooth;
+      line-height: 1.5;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Buttons & utilities */
+    .btn {
+      display: inline-block;
+      background-color: #2E7D32;
+      color: white;
+      font-weight: 600;
+      padding: 12px 28px;
+      border-radius: 40px;
+      text-decoration: none;
+      transition: 0.25s ease;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      text-align: center;
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid #2E7D32;
+      color: #2E7D32;
+    }
+
+    .btn-outline:hover {
+      background: #2E7D32;
+      color: white;
+    }
+
+    .btn:hover {
+      background-color: #1B5E20;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+    }
+
+    .btn-wa {
+      background: #25D366;
+      border: none;
+    }
+    .btn-wa:hover {
+      background: #1da15c;
+    }
+
+    section {
+      padding: 70px 0;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      letter-spacing: -0.01em;
+    }
+
+    .section-subhead {
+      font-size: 1.1rem;
+      color: #5B6778;
+      max-width: 700px;
+      margin-bottom: 48px;
+    }
+
+    /* navbar */
+    .navbar {
+      position: sticky;
+      top: 0;
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+      z-index: 100;
+      padding: 14px 0;
+    }
+    .nav-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .logo h1 {
+      font-size: 1.7rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg, #1E2A3E 0%, #2E7D32 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .logo span {
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: #2E7D32;
+      display: block;
+      letter-spacing: 1px;
+    }
+    .nav-links a {
+      margin-left: 28px;
+      text-decoration: none;
+      color: #1E2A3E;
+      font-weight: 500;
+      transition: 0.2s;
+    }
+    .nav-links a:hover {
+      color: #2E7D32;
+    }
+    .mobile-menu {
+      display: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+    }
+
+    /* Hero + top form row (form at top) */
+    .hero {
+      background: linear-gradient(105deg, #E8F5E9 0%, #FFFFFF 100%);
+      padding: 50px 0 60px;
+    }
+    .hero-flex {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      align-items: center;
+    }
+    .hero-content {
+      flex: 1.2;
+    }
+    .hero-badge {
+      background: #C8E6C9;
+      color: #2E7D32;
+      display: inline-block;
+      padding: 6px 16px;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+    .hero-content h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 18px;
+    }
+    .hero-highlight {
+      color: #2E7D32;
+    }
+    .hero-desc {
+      font-size: 1.1rem;
+      color: #3E4A5C;
+      margin-bottom: 28px;
+    }
+    .hero-stats {
+      display: flex;
+      gap: 28px;
+      margin: 24px 0;
+      flex-wrap: wrap;
+    }
+    .stat-item h3 {
+      font-size: 1.6rem;
+      font-weight: 800;
+    }
+    .hero-cta {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+    .hero-image {
+      flex: 1;
+      background: #DCEDC8;
+      border-radius: 32px;
+      min-height: 280px;
+      background-size: cover;
+      background-position: center;
+      box-shadow: 0 20px 35px -12px rgba(0,0,0,0.1);
+    }
+
+    /* Form Card - displayed at top (inside hero) */
+    .quick-form-card {
+      background: white;
+      border-radius: 32px;
+      padding: 28px 24px;
+      box-shadow: 0 20px 35px -8px rgba(0,0,0,0.1);
+      border: 1px solid #C8E6C9;
+      max-width: 420px;
+      width: 100%;
+    }
+    .quick-form-card h3 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .quick-form-card p {
+      color: #4b5563;
+      margin-bottom: 20px;
+    }
+    .input-group {
+      margin-bottom: 16px;
+    }
+    .input-group input, .input-group textarea {
+      width: 100%;
+      padding: 14px 18px;
+      border: 1px solid #E5E7EB;
+      border-radius: 44px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      transition: 0.2s;
+    }
+    .input-group textarea {
+      border-radius: 28px;
+      resize: vertical;
+    }
+    .input-group input:focus, .input-group textarea:focus {
+      outline: none;
+      border-color: #2E7D32;
+      box-shadow: 0 0 0 3px rgba(46,125,50,0.2);
+    }
+    .wa-row {
+      display: flex;
+      gap: 12px;
+      margin-top: 12px;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .whatsapp-btn {
+      background: #25D366;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 18px;
+      border-radius: 40px;
+      font-weight: 600;
+      color: white;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+
+    /* other sections (cards etc) */
+    .highlight-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 30px;
+      margin-top: 20px;
+    }
+    .card {
+      background: #FFFFFF;
+      border-radius: 28px;
+      padding: 28px 22px;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.05);
+      transition: all 0.25s;
+      border: 1px solid #DCEDC8;
+    }
+    .card i {
+      font-size: 2.3rem;
+      color: #2E7D32;
+      margin-bottom: 18px;
+    }
+    .price-badge {
+      background: #1E2A3E;
+      color: white;
+      display: inline-block;
+      padding: 6px 18px;
+      border-radius: 50px;
+      font-weight: 700;
+      margin: 16px 0 0;
+    }
+
+    .location-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      background: #F1F8E9;
+      border-radius: 48px;
+      padding: 42px;
+    }
+    .connect-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 20px;
+    }
+    .time-item {
+      background: white;
+      border-radius: 20px;
+      padding: 14px;
+      text-align: center;
+      font-weight: 600;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+      margin-top: 32px;
+    }
+    .gallery-card {
+      background: #DCEDC8;
+      border-radius: 28px;
+      height: 220px;
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding-bottom: 16px;
+      color: #1B5E20;
+      font-weight: 700;
+      text-shadow: none;
+    }
+    .highlights-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin: 28px 0;
+    }
+    .highlight-tag {
+      background: #E8F5E9;
+      padding: 8px 22px;
+      border-radius: 60px;
+      font-weight: 500;
+      color: #1B5E20;
+    }
+    .eco-flex {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 32px;
+    }
+    .eco-box {
+      flex: 1;
+      background: #F1F8E9;
+      border-radius: 32px;
+      padding: 28px;
+    }
+    footer {
+      background: #11161F;
+      color: #BDC4D1;
+      padding: 40px 0 28px;
+      text-align: center;
+    }
+    @media (max-width: 950px) {
+      .hero-flex {
+        flex-direction: column;
+      }
+      .quick-form-card {
+        max-width: 100%;
+      }
+      .hero-content h1 {
+        font-size: 2.2rem;
+      }
+      .location-grid {
+        padding: 28px;
+      }
+    }
+    @media (max-width: 680px) {
+      .nav-links {
+        display: none;
+      }
+      .mobile-menu {
+        display: block;
+      }
+      .hero-stats {
+        flex-direction: column;
+        gap: 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="container nav-flex">
+    <div class="logo">
+      <h1>Crystal360</h1>
+      <span>Buy Property At Ease</span>
+    </div>
+    <div class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#location">Location</a>
+      <a href="#highlights">Highlights</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact-form-top" class="btn-outline" style="padding:8px 20px;">Enquire</a>
+    </div>
+    <div class="mobile-menu">
+      <i class="fas fa-bars"></i>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <!-- Hero Section + Integrated Lead Form (Web3Forms + WhatsApp) at top -->
+  <section id="home" class="hero">
+    <div class="container hero-flex">
+      <div class="hero-content">
+        <div class="hero-badge">✨ The Ultimate Retail & Business Landmark</div>
+        <h1>Crystal360 <span class="hero-highlight"></span><br>Dwarka Expressway, Gurugram</h1>
+        <p class="hero-desc">Exclusive Pre-leased and Ready-to-Move Vacant Spaces. Most Successful High Street Destination at Prime Location with Exceptional Connectivity.</p>
+        <div class="hero-stats">
+          <div class="stat-item"><h3>₹75 Lakhs*</h3><p>Lockable Shops Starts</p></div>
+          <div class="stat-item"><h3>1,00,000+</h3><p>High Net-Worth Families</p></div>
+          <div class="stat-item"><h3>50+</h3><p>Residential Developments</p></div>
+        </div>
+        <div class="hero-cta">
+          <a href="#contact-form-top" class="btn">📞 Book Site Visit</a>
+        </div>
+        <p style="margin-top: 20px; font-size:0.95rem;"><i class="fas fa-phone-alt"></i> Call Now – <strong>9310161058</strong></p>
+      </div>
+
+      <!-- LEAD FORM - TOP (web3forms + WhatsApp) -->
+      <div id="contact-form-top" class="quick-form-card">
+        <h3>Book Your Site Visit</h3>
+        <p>Get brochure, pricing & availability. <strong>Instant reply</strong></p>
+        <form id="web3form" action="https://api.web3forms.com/submit" method="POST">
+          <!-- Web3Forms Access Key - Replace with your own key from web3forms.com for production -->
+          <input type="hidden" name="access_key" value="31142292-ef01-48e5-8fae-0ade52207307">
+          <input type="hidden" name="subject" value="New Crystal360 Lead from Landing Page">
+          <input type="hidden" name="redirect" value="false">
+          <div class="input-group">
+            <input type="text" name="name" placeholder="Full Name" required>
+          </div>
+          <div class="input-group">
+            <input type="tel" name="phone" placeholder="Mobile Number" required>
+          </div>
+          <div class="input-group">
+            <input type="email" name="email" placeholder="Email Address">
+          </div>
+          <div class="input-group">
+            <textarea name="message" rows="2" placeholder="Preferred date / Time"></textarea>
+          </div>
+          <button type="submit" class="btn" style="width:100%; background:#2E7D32;">Send Inquiry →</button>
+          <div class="wa-row">
+            <span style="font-size:0.8rem; color:#4B5563;">Or connect directly</span>
+            <a href="https://wa.me/919310161058?text=Hello%20Crystal360%2C%20I'm%20interested%20in%20retail%20shops%20at%20Sector%2099.%20Please%20share%20details." target="_blank" class="whatsapp-btn">
+              <i class="fab fa-whatsapp"></i> WhatsApp Now
+            </a>
+          </div>
+        </form>
+        <div id="form-status" style="margin-top: 12px; font-size:0.85rem; text-align:center;"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Growing hotspots section -->
+  <section>
+    <div class="container">
+      <div class="section-title">Growing Hotspots For Leading Brands !</div>
+      <div class="highlight-grid">
+        <div class="card">
+          <i class="fas fa-store"></i>
+          <h3>Premium High-Street Retail</h3>
+          <p>Ground & First Floor retail spaces with unmatched visibility on Dwarka Expressway.</p>
+          <div class="price-badge">Starting ₹75 Lakhs*</div>
+        </div>
+        <div class="card">
+          <i class="fas fa-champagne-glasses"></i>
+          <h3>Vibrant F&B Zone</h3>
+          <p>Amphitheatre, Sky Deck & Clubhouse — perfect for restaurants, cafes & entertainment.</p>
+        </div>
+        <div class="card">
+          <i class="fas fa-building"></i>
+          <h3>Grade ‘A’ Corporate Tower</h3>
+          <p>Integrated Work–Retail–Lifestyle concept with extensive parking infrastructure.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Location Advantage! -->
+  <section id="location" style="background:#F1F8E9;">
+    <div class="container">
+      <div class="section-title">Location Advantage!</div>
+      <div class="section-subhead">Discover the strategic location benefits and connectivity that make Crystal360 a prime commercial destination in Gurugram.</div>
+      <div class="location-grid">
+        <div class="location-stats">
+          <h3>Prime Location in a Thriving Catchment</h3>
+          <p>Located in one of Gurugram’s fastest-evolving growth corridors, Crystal360 is surrounded by a strong and affluent residential ecosystem.</p>
+          <ul style="list-style: none; margin-top: 20px;">
+            <li><i class="fas fa-check-circle" style="color:#2E7D32;"></i> 1,00,000+ High Net-Worth Families</li>
+            <li><i class="fas fa-check-circle" style="color:#2E7D32;"></i> 50+ Residential Developments</li>
+            <li><i class="fas fa-check-circle" style="color:#2E7D32;"></i> 10+ Landmark Luxury Projects</li>
+            <li><i class="fas fa-check-circle" style="color:#2E7D32;"></i> Dense Premium Neighborhood</li>
+          </ul>
+        </div>
+        <div class="location-stats">
+          <h3>Exceptional Connectivity</h3>
+          <div class="connect-list">
+            <div class="time-item">✈️ IGI Airport <br>15–20 Min</div>
+            <div class="time-item">🏛️ Convention Centre <br>10 Min</div>
+            <div class="time-item">🌍 Diplomatic Enclave II <br>12 Min</div>
+            <div class="time-item">🛣️ Dwarka Expressway <br>Direct</div>
+            <div class="time-item">🚆 Gurgaon Railway <br>10 Min</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section id="gallery">
+    <div class="container">
+      <div class="section-title">GALLERY</div>
+      <div class="gallery-grid">
+        <div class="gallery-card" style="background-image: url('https://placehold.co/500x300/C8E6C9/FFFFFF?text=Crystal360+Plaza');">Retail Plaza</div>
+        <div class="gallery-card" style="background-image: url('https://placehold.co/500x300/A5D6A7/FFFFFF?text=High+Street');">High Street Facade</div>
+        <div class="gallery-card" style="background-image: url('https://placehold.co/500x300/81C784/FFFFFF?text=Amphitheatre');">Amphitheatre</div>
+        <div class="gallery-card" style="background-image: url('https://placehold.co/500x300/66BB6A/FFFFFF?text=Sky+Deck');">Sky Deck & Pool</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Project Highlights -->
+  <section style="background:#E8F5E9;">
+    <div class="container">
+      <div class="section-title">Exclusive Pre-Leased & Ready-to-Move Vacant Spaces Available</div>
+      <div class="highlights-list">
+        <span class="highlight-tag">Premium High-Street Retail Destination</span>
+        <span class="highlight-tag">Anchor Spaces & Multiplex</span>
+        <span class="highlight-tag">Vibrant F&B Zone</span>
+        <span class="highlight-tag">Amphitheatre</span>
+        <span class="highlight-tag">Extensive Parking Infrastructure</span>
+        <span class="highlight-tag">Grade ‘A’ Corporate Tower</span>
+        <span class="highlight-tag">Integrated Work–Retail–Lifestyle Concept</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Complete Ecosystem -->
+  <section>
+    <div class="container">
+      <div class="section-title">A Complete Ecosystem</div>
+      <div class="section-subhead">Crystal360 brings together retail, workspaces and entertainment within one integrated commercial destination on Dwarka Expressway.</div>
+      <div class="eco-flex">
+        <div class="eco-box">
+          <i class="fas fa-shopping-bag" style="font-size:2rem; color:#2E7D32;"></i>
+          <h3>Retail & Entertainment Hub</h3>
+          <ul style="margin-top:16px; list-style: none;">
+            <li>✔ Ground & First Floor High-Street Retail</li>
+            <li>✔ Anchor Stores & Multiplex</li>
+            <li>✔ Family Entertainment Zone</li>
+            <li>✔ Clubhouse Provision</li>
+            <li>✔ Sky Swimming Pool & Sky Deck (5th & 6th Floor)</li>
+            <li>✔ Perfect for F&B, Restaurants, Cafés, Banks & Showrooms</li>
+          </ul>
+        </div>
+        <div class="eco-box">
+          <i class="fas fa-hospital-user" style="font-size:2rem; color:#2E7D32;"></i>
+          <h3>Nearby Institutions</h3>
+          <ul style="margin-top:16px; list-style: none;">
+            <li>🏥 AIIMS Jhajjar</li>
+            <li>🏥 Signature Hospital</li>
+            <li>🏥 SGT Medical College Hospital & Research Institute</li>
+            <li>🏥 Sheetla Mata Medical College</li>
+            <li>📚 Delhi Public School</li>
+            <li>📚 HSV International School</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Crystal360 -->
+  <section style="background: #F1F8E9;">
+    <div class="container">
+      <div class="section-title">Why Choose Crystal360?</div>
+      <div class="highlight-grid">
+        <div class="card"><i class="fas fa-road"></i><h3>Prime frontage</h3><p>India’s widest expressway – Dwarka Expressway frontage.</p></div>
+        <div class="card"><i class="fas fa-home"></i><h3>High-income communities</h3><p>Located amidst premium residential catchment.</p></div>
+        <div class="card"><i class="fas fa-chart-line"></i><h3>Consistent footfall</h3><p>Strong visibility and modern infrastructure for future growth.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tagline -->
+  <section style="padding: 30px 0 20px;">
+    <div class="container" style="text-align: center;">
+      <h2 style="font-size: 1.9rem; color:#1B5E20;">CRYSTAL360 – The Medley of Good Times</h2>
+      <p style="font-size: 1.2rem; margin: 16px 0;">Shop. Work. Dine. Entertain. Experience It All.</p>
+      <p>📍 Sector 99, Dwarka Expressway, Gurugram</p>
+      <p style="margin-top: 12px;">Connect with us today for leasing and investment opportunities.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="logo" style="margin-bottom: 18px;">
+      <h2 style="color:white;">Crystal360</h2>
+      <span style="color:#81C784;">Sector 99, Dwarka Expressway, Gurugram</span>
+    </div>
+    <p>📞 Sales Enquiry: <strong>9310161058</strong> | 📧 hello@crystal360.in</p>
+    <p style="margin-top: 12px;">© 2025 Crystal360 | Premium Commercial Destination | *T&C Apply</p>
+  </div>
+</footer>
+
+<script>
+  // mobile menu toggle
+  const mobileBtn = document.querySelector('.mobile-menu');
+  const navLinks = document.querySelector('.nav-links');
+  if(mobileBtn) {
+    mobileBtn.addEventListener('click', () => {
+      if(navLinks.style.display === 'flex') {
+        navLinks.style.display = 'none';
+      } else {
+        navLinks.style.display = 'flex';
+        navLinks.style.flexDirection = 'column';
+        navLinks.style.position = 'absolute';
+        navLinks.style.top = '70px';
+        navLinks.style.left = '0';
+        navLinks.style.width = '100%';
+        navLinks.style.backgroundColor = 'white';
+        navLinks.style.padding = '24px';
+        navLinks.style.gap = '20px';
+        navLinks.style.boxShadow = '0 10px 20px rgba(0,0,0,0.05)';
+        navLinks.style.zIndex = '99';
+      }
+    });
+  }
+  window.addEventListener('resize', () => {
+    if(window.innerWidth > 900 && navLinks) {
+      navLinks.style.display = '';
+      navLinks.style.flexDirection = '';
+      navLinks.style.position = '';
+      navLinks.style.width = '';
+      navLinks.style.backgroundColor = '';
+      navLinks.style.padding = '';
+    }
+  });
+
+  // Web3Forms handling + WhatsApp integrated already, but also handle form submission with feedback
+  const form = document.getElementById('web3form');
+  const statusDiv = document.getElementById('form-status');
+  if(form) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      statusDiv.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+      const formData = new FormData(form);
+      // Using fetch to submit to Web3Forms API
+      try {
+        const response = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          body: formData
+        });
+        const result = await response.json();
+        if(result.success) {
+          statusDiv.innerHTML = '✅ Thank you! Our expert will call you shortly.';
+          form.reset();
+          setTimeout(() => { statusDiv.innerHTML = ''; }, 5000);
+        } else {
+          statusDiv.innerHTML = '⚠️ Error: ' + (result.message || 'Please try again.');
+        }
+      } catch (error) {
+        statusDiv.innerHTML = '❌ Network error. Please WhatsApp or call us.';
+      }
+    });
+  }
+
+  // smooth anchor
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const targetId = this.getAttribute('href');
+      if(targetId === "#" || targetId === "") return;
+      const targetElem = document.querySelector(targetId);
+      if(targetElem) {
+        e.preventDefault();
+        targetElem.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+</script>
+<!-- Note: Replace access_key with your actual Web3Forms access key for production. Phone updated to 9310161058. All light brown backgrounds changed to light green (#E8F5E9, #F1F8E9, #DCEDC8, etc.) -->
+</body>
+</html>
